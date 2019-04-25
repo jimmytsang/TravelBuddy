@@ -1,6 +1,6 @@
 package com.example.travelbuddy;
 
-import android.app.Activity;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,12 +10,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 public class Login extends AppCompatActivity {
 
     Button login_button;
     TextView username_input;
     TextView password_input;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +41,19 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // clicking 'back' returns you to Login Activity
-//        back_button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(Login.this, LoginActivity.class);
-//                Login.this.startActivity(intent);
-//            }
-//        });
+        // back button on toolbar
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.arrow);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Login.this, LoginActivity.class);
+                        Login.this.startActivity(intent);
+                    }
+                }
+        );
+
     }
 }
