@@ -6,4 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/country_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Country / Destination Info"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="172dp" />
 </android.support.constraint.ConstraintLayout>

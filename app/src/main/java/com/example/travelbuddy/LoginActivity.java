@@ -1,13 +1,19 @@
 package com.example.travelbuddy;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ActionMenuView;
 import android.widget.Button;
+
 
 public class LoginActivity extends AppCompatActivity {
 
+    public static final int LOGIN_RESULT = 219;
 
     Button login_button;
     @Override
@@ -21,8 +27,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, Login.class);
-                LoginActivity.this.startActivity(intent);
+                startActivityForResult(intent, LOGIN_RESULT);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        finish();
     }
 }
