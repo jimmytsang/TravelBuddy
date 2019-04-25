@@ -18,8 +18,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.travelbuddy.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Login" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/MainTheme" />
+        <activity android:name=".Login"
+            android:theme="@style/MainTheme" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

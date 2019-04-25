@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.support.v7.widget.Toolbar;
@@ -36,19 +37,27 @@ public class MainActivity extends AppCompatActivity {
         // back arrow on toolbar
         toolbar.setNavigationIcon(R.drawable.arrow);
         toolbar.setNavigationOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                        MainActivity.this.startActivity(intent);
-                    }
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    MainActivity.this.startActivity(intent);
                 }
+            }
         );
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation);
         setupDrawerContent(navigationView);
 
+        Button countryButton = findViewById(R.id.country_button);
+        countryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CountrySearchActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 
     @Override
