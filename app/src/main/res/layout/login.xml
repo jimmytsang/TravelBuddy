@@ -3,6 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimaryDark"
+        />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -30,7 +38,7 @@
             android:layout_marginLeft="130dp"
             android:layout_marginTop="140dp"
             android:paddingTop="135dp"
-            android:textSize="14sp" />
+            android:textSize="14sp"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -54,12 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="160dp"
         android:layout_marginTop="200dp"
-        android:text="Log In" />
+        android:text="Log In"
+        android:textColor="@android:color/white"/>
 
-    <Button
-        android:id="@+id/button_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Back" />
 </RelativeLayout>
