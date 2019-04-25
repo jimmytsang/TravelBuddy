@@ -26,7 +26,20 @@ android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frame"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <Button
+            android:id="@+id/country_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="100dp"
+            android:text="Search Country / Destination Info"
+            tools:layout_editor_absoluteX="63dp"
+            tools:layout_editor_absoluteY="172dp" />
+
+        </FrameLayout>
+
+
 </LinearLayout>
 <android.support.design.widget.NavigationView
     android:id="@+id/navigation"
@@ -36,12 +49,3 @@ android:fitsSystemWindows="true"
     app:menu="@menu/nav_items"
     android:background="@color/colorPrimary"/>
 </android.support.v4.widget.DrawerLayout>
-<android.support.constraint.ConstraintLayout>
-    <Button
-        android:id="@+id/country_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search Country / Destination Info"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="172dp" />
-</android.support.constraint.ConstraintLayout>

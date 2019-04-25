@@ -91,15 +91,16 @@ public class MainActivity extends AppCompatActivity {
         Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.first:
-                fragmentClass = Login.class;
+//                fragmentClass = Login.class;
                 break;
             case R.id.second:
-                fragmentClass = Login.class;
+//                fragmentClass = Login.class;
                 break;
             default:
-                fragmentClass = Login.class;
+//                fragmentClass = Login.class;
         }
 
+        /*
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frame, fragment).commit();
+        */
 
         // Highlight the selected item has been done by NavigationView
         menuItem.setChecked(true);
