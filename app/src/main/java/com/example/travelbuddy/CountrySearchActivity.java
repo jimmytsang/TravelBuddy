@@ -1,9 +1,11 @@
 package com.example.travelbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +29,15 @@ public class CountrySearchActivity extends AppCompatActivity {
 //            }
 //        });
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        CardView cardView = findViewById(R.id.card_view_1);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CountrySearchActivity.this, CountryPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // create an action bar button
