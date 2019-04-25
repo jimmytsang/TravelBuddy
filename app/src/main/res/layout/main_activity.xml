@@ -35,6 +35,13 @@ android:fitsSystemWindows="true"
     android:layout_gravity="right"
     app:menu="@menu/nav_items"
     android:background="@color/colorPrimary"/>
-
-
 </android.support.v4.widget.DrawerLayout>
+<android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/country_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search Country / Destination Info"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="172dp" />
+</android.support.constraint.ConstraintLayout>

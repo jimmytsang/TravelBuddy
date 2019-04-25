@@ -4,6 +4,9 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,7 +35,9 @@ public class Login extends AppCompatActivity {
                 String username_string = username_input.getText().toString();
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 intent.putExtra("username", username_string);
-                Login.this.startActivity(intent);
+                startActivity(intent);
+                setResult(LoginActivity.LOGIN_RESULT);
+                finish();
             }
         });
 
