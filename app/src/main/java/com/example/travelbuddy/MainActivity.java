@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // back arrow on toolbar
-        toolbar.setNavigationIcon(R.drawable.arrow);
-        toolbar.setNavigationOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                    MainActivity.this.startActivity(intent);
-                }
-            }
-        );
+//        toolbar.setNavigationIcon(R.drawable.arrow);
+//        toolbar.setNavigationOnClickListener(
+//            new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//                    MainActivity.this.startActivity(intent);
+//                }
+//            }
+//        );
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation);
