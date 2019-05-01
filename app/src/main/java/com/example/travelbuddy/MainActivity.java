@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-
     /** TO DO: update menu options and change fragmentClass **/
     public void selectDrawerItem(MenuItem menuItem) {
         Fragment fragment = null;
@@ -119,5 +118,4 @@ public class MainActivity extends AppCompatActivity {
         // Close the navigation drawer
         drawerLayout.closeDrawers();
     }
-
 }
