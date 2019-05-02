@@ -22,26 +22,47 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             />
 
-        <!-- For fragments -->
-        <FrameLayout
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view_1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/frame"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="16dp"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="wrap_content"
+            android:layout_below="@id/country_searchview"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            card_view:cardBackgroundColor="@color/colorBackgroundGray"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp">
 
-            <Button
-                android:id="@+id/country_button"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="100dp"
-                android:text="Search Country / Destination Info"
-                tools:layout_editor_absoluteX="63dp"
-                tools:layout_editor_absoluteY="172dp" />
-        </FrameLayout>
+                android:layout_height="match_parent"
+                android:onClick="toSearch">
+
+                <ImageView
+                    android:id="@+id/thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/travel" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thumbnail"
+                    android:maxLines="3"
+                    android:padding="8dp"
+                    android:text="Destination Search"
+                    android:textColor="#222"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
