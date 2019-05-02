@@ -28,22 +28,22 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // back arrow on toolbar
-//        toolbar.setNavigationIcon(R.drawable.arrow);
-//        toolbar.setNavigationOnClickListener(
-//            new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-//                    MainActivity.this.startActivity(intent);
-//                }
-//            }
-//        );
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation);
         setupDrawerContent(navigationView);
+
+        toolbar.setNavigationIcon(R.drawable.menu);
+        toolbar.setNavigationOnClickListener(
+            new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawerLayout.openDrawer(Gravity.LEFT);
+                }
+            }
+        );
 
         Button countryButton = findViewById(R.id.country_button);
         countryButton.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.tool_items, menu);
+//        getMenuInflater().inflate(R.menu.tool_items, menu);
         return true;
     }
 
@@ -69,13 +69,8 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if (id == R.id.menu) {
-            drawerLayout.openDrawer(Gravity.RIGHT);
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
-
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
