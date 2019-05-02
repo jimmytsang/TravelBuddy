@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".CountrySearchActivity"
@@ -28,8 +29,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.travelbuddy.MainActivity" />
         </activity>
-        <activity android:name=".CountryPage"
+        <activity
+            android:name=".CountryPage"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TopDest"
+            android:label="@string/title_activity_top_dest"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

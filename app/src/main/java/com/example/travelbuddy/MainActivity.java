@@ -81,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(intent);
     }
 
+    public void toDest(View view) {
+        Intent intent = new Intent(MainActivity.this, TopDest.class);
+        MainActivity.this.startActivity(intent);
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
