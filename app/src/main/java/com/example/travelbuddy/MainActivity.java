@@ -59,15 +59,6 @@ public class MainActivity extends AppCompatActivity {
             }
         );
 
-        Button countryButton = findViewById(R.id.country_button);
-        countryButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, CountrySearchActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("test");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -83,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 // PASS
             }
         });
+    }
+
+    public void toSearch(View view) {
+        Intent intent = new Intent(MainActivity.this, CountrySearchActivity.class);
+        MainActivity.this.startActivity(intent);
     }
 
     @Override
