@@ -36,11 +36,11 @@ public class CountryTabAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0 :
-                return "Tab 1";
+                return "Visa Information";
             case 1 :
-                return "Tab 2";
+                return "Travel Tips";
             case 2 :
-                return "Tab 3";
+                return "Top Destinations";
         }
         return null;
     }
