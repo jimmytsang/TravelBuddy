@@ -7,14 +7,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class Login extends AppCompatActivity {
 
     Button login_button;
     TextView username_input;
     TextView password_input;
-    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +36,5 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        // back button on toolbar
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.arrow);
-        toolbar.setNavigationOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Login.this, LoginActivity.class);
-                        Login.this.startActivity(intent);
-                    }
-                }
-        );
     }
 }

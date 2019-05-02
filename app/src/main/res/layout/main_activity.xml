@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:background="?attr/colorPrimaryDark"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             />
 
         <!-- For fragments -->
@@ -26,6 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/frame"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <Button
@@ -36,9 +41,7 @@
                 android:text="Search Country / Destination Info"
                 tools:layout_editor_absoluteX="63dp"
                 tools:layout_editor_absoluteY="172dp" />
-
-            </FrameLayout>
-
+        </FrameLayout>
 
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView

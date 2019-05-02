@@ -1,6 +1,8 @@
 package com.example.travelbuddy;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Home");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -35,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigation);
         setupDrawerContent(navigationView);
 
-        toolbar.setNavigationIcon(R.drawable.menu);
+        Drawable menu = getDrawable(R.drawable.menu);
+        menu.setColorFilter( 0xffffffff, PorterDuff.Mode.MULTIPLY );
+        toolbar.setNavigationIcon(menu);
         toolbar.setNavigationOnClickListener(
             new View.OnClickListener() {
                 @Override

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 public class CountryPage extends AppCompatActivity {
@@ -28,13 +29,16 @@ public class CountryPage extends AppCompatActivity {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("United States of America");
+        setSupportActionBar(toolbar);
     }
 
     // create an action bar button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.default_menu, menu);
-        setTitle("United States of America");
         return super.onCreateOptionsMenu(menu);
     }
 
