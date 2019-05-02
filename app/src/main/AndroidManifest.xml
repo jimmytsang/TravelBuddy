@@ -9,6 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".LoginActivity"
+            android:theme="@style/MainTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Login"
+            android:theme="@style/MainTheme" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/MainTheme" />
         <activity
             android:name=".CountrySearchActivity"
             android:label="@string/title_activity_country_search"
@@ -18,18 +30,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.travelbuddy.MainActivity" />
         </activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/MainTheme" />
-        <activity android:name=".Login"
-            android:theme="@style/MainTheme" />
-        <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".CountryPage" />
+        <activity android:name=".CountryPage"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
