@@ -14,12 +14,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import com.example.travelbuddy.fragment.VisaFragment;
-import com.example.travelbuddy.fragment.TipsFragment;
-import com.example.travelbuddy.fragment.ProfileFragment;
-import com.example.travelbuddy.fragment.TopDestinationsFragment;
-import com.example.travelbuddy.helper.BottomNavigationBehavior;
+import com.example.travelbuddy.VisaFragment;
+import com.example.travelbuddy.TipsFragment;
+import com.example.travelbuddy.ProfileFragment;
+import com.example.travelbuddy.TopDestinationsFragment;
+//import com.example.travelbuddy.helper.BottomNavigationBehavior;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavActvity extends AppCompatActivity {
@@ -47,19 +48,34 @@ public class BottomNavActvity extends AppCompatActivity {
             Fragment fragment;
             switch (item.getItemId()) {
                 case R.id.navigation_shop:
-                    toolbar.setTitle("Shop");
+                    toolbar.setTitle("Visa");
+                    fragment = new VisaFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.navigation_gifts:
-                    toolbar.setTitle("My Gifts");
+                    toolbar.setTitle("Tips");
+                    fragment = new TipsFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.navigation_cart:
-                    toolbar.setTitle("Cart");
+                    toolbar.setTitle("Top Destinations");
+                    fragment = new TopDestinationsFragment();
+                    loadFragment(fragment);
                     return true;
                 case R.id.navigation_profile:
                     toolbar.setTitle("Profile");
+                    fragment = new ProfileFragment();
+                    loadFragment(fragment);
                     return true;
             }
             return false;
         }
     };
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }
