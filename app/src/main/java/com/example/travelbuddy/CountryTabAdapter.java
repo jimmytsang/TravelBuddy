@@ -18,8 +18,8 @@ public class CountryTabAdapter extends FragmentPagerAdapter {
     {
         switch (position){
             case 0 : return new TransportationFragment();
-            case 1 : return new TransportationFragment();
-            case 2 : return new TransportationFragment();
+            case 1 : return new TipsFragment();
+            case 2 : return new TopDestinationsFragment();
         }
         return null;
     }

@@ -30,7 +30,7 @@ public class CountryPage extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("United States of America");
         setSupportActionBar(toolbar);
     }
