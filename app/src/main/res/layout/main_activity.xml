@@ -17,10 +17,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
             android:background="?attr/colorPrimaryDark"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            />
+            android:fitsSystemWindows="true"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,7 +39,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            card_view:cardBackgroundColor="@color/colorBackgroundGray"
+            card_view:cardBackgroundColor="@color/colorPrimary"
+
             card_view:cardCornerRadius="4dp"
             card_view:cardElevation="4dp">
 
@@ -62,7 +66,7 @@
                     android:maxLines="3"
                     android:padding="8dp"
                     android:text="Destination Search"
-                    android:textColor="#222"
+                    android:textColor="#fff"
                     android:textSize="22dp"
                     android:textStyle="bold" />
             </RelativeLayout>
@@ -77,7 +81,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                card_view:cardBackgroundColor="@color/colorBackgroundGray"
+                card_view:cardBackgroundColor="@color/colorPrimary"
                 card_view:cardCornerRadius="4dp"
                 card_view:cardElevation="4dp">
 
@@ -104,7 +108,7 @@
                     android:maxLines="3"
                     android:padding="8dp"
                     android:text="Top Places to Visit"
-                    android:textColor="#222"
+                    android:textColor="#fff"
                     android:textSize="22dp"
                     android:textStyle="bold" />
             </RelativeLayout>
