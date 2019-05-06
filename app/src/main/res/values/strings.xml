@@ -95,4 +95,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_scrolling_example">ScrollingActivityExample</string>
+    <string name="visa_placeholder_text">
+        "Applying for a visa for travel to the United States is not necessary.\n\n"
+
+        "Travelers can apply for an ESTA (Electronic System for Travel Authorization) visa waiver to travel to the United States instead of a full visa required for long-term stay.\n\n"
+        "The ESTA allows citizens of Singapore to visit the U.S. for tourism, business, transit, medical and short study purposes without a visa for up to 90 days per visit."
+    </string>
+    <string name="visa_link">More information at  https://esta.cbp.dhs.gov</string>
 </resources>
