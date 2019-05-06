@@ -33,6 +33,7 @@
         android:layout_height="wrap_content"
         android:background="#4D9AAA" />
 
+
     <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view_1"
         android:layout_width="match_parent"
