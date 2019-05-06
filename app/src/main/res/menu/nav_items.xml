@@ -4,12 +4,12 @@
         <item
             android:id="@+id/first"
             android:icon="@drawable/ic_launcher_round"
-            android:title="first"
+            android:title="Visa Information"
             android:visible="true" />
         <item
             android:id="@+id/second"
             android:icon="@drawable/ic_launcher_round"
-            android:title="second"
+            android:title="My Planned Trips"
             android:visible="true" />
     </group>
 </menu>
