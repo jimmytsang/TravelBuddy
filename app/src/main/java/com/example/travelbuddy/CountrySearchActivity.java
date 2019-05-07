@@ -3,11 +3,14 @@ package com.example.travelbuddy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,19 +18,22 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class CountrySearchActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "CountrySearch";
+    private RecyclerView countryResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class CountrySearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        countryResults = findViewById(R.id.country_search_results);
         CardView cardView = findViewById(R.id.card_view_1);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +94,7 @@ public class CountrySearchActivity extends AppCompatActivity {
         for (Map.Entry<String, Object> entry : data.entrySet()){
             Map singleCountry = (Map) entry.getValue();
             Log.d(LOG_TAG, "search query desc for " + entry.getKey() + " is " + singleCountry.get("desc"));
+            CountryResult thisResult = new CountryResult(entry.getKey(), (String) singleCountry.get("desc"));
         }
     }
 
@@ -107,5 +115,69 @@ public class CountrySearchActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+}
+
+class CountryResult {
+    public String name;
+    public String desc;
+    public int imageId;
+
+    private Map<String, Integer> idMap;
+
+    CountryResult(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+        initializeIdMap();
+        this.imageId = idMap.get(name);
+    }
+
+    private void initializeIdMap() {
+        idMap = new HashMap<>();
+        idMap.put("Brazil", R.mipmap.brazil_small);
+        idMap.put("United States of America", R.drawable.sf);
+    }
+}
+
+class CountryCardViewAdapter extends RecyclerView.Adapter<CountryCardViewAdapter.CountryCardViewHolder>{
+
+    public static class CountryCardViewHolder extends RecyclerView.ViewHolder {
+        CardView cv;
+        TextView name;
+        TextView desc;
+        ImageView image;
+
+        CountryCardViewHolder(View itemView) {
+            super(itemView);
+            cv = (CardView)itemView.findViewById(R.id.country_default_card_view);
+            name = (TextView)itemView.findViewById(R.id.country_name);
+            desc = (TextView)itemView.findViewById(R.id.country_desc);
+            image = (ImageView)itemView.findViewById(R.id.country_img);
+        }
+    }
+
+    List<CountryResult> countries;
+
+    CountryCardViewAdapter(List<CountryResult> countries) {
+        this.countries = countries;
+    }
+
+    @Override
+    public int getItemCount() {
+        return countries.size();
+    }
+
+    @Override
+    public CountryCardViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.search_card, viewGroup, false);
+        CountryCardViewHolder pvh = new CountryCardViewHolder(v);
+        return pvh;
+    }
+
+    @Override
+    public void onBindViewHolder(CountryCardViewHolder personViewHolder, int i) {
+        personViewHolder.name.setText(countries.get(i).name);
+        personViewHolder.desc.setText(countries.get(i).desc);
+        personViewHolder.image.setImageResource(countries.get(i).imageId);
     }
 }

@@ -18,6 +18,7 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/country_search_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -35,6 +36,11 @@
             app:iconifiedByDefault="false"
             app:queryHint="Search"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/country_search_results"
+            />
 
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_1"
@@ -55,10 +61,10 @@
                 <ImageView
                     android:id="@+id/thumbnail"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp"
+                    android:layout_height="220dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sf" />
+                    android:src="@mipmap/brazil_small" />
 
                 <TextView
                     android:id="@+id/title"
