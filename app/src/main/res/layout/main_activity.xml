@@ -98,7 +98,7 @@
                     android:layout_height="160dp"
                     android:scaleType="centerCrop"
                     android:layout_alignParentTop="true"
-                    android:src="@mipmap/travel" />
+                    android:src="@mipmap/dest" />
 
                 <TextView
                     android:id="@+id/title2"
