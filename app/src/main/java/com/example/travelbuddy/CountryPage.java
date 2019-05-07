@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 public class CountryPage extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
+    CountryResult country;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,12 @@ public class CountryPage extends AppCompatActivity {
             }
         });
 
+
+        Bundle extras = getIntent().getExtras();
+        country = new CountryResult((String) extras.get("name"), (String) extras.get("desc"));
+
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("United States of America");
+        toolbar.setTitle(country.name);
         setSupportActionBar(toolbar);
     }
 
