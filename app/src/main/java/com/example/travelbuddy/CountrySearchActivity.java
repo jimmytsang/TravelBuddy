@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,12 +29,16 @@ import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CountrySearchActivity extends AppCompatActivity {
 
     private static final String LOG_TAG = "CountrySearch";
     private RecyclerView countryResults;
+    private CountryCardViewAdapter adapter;
+    private List<CountryResult> countries;
+    private LinearLayoutManager linearLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,6 @@ public class CountrySearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        countryResults = findViewById(R.id.country_search_results);
         CardView cardView = findViewById(R.id.card_view_1);
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,16 +70,18 @@ public class CountrySearchActivity extends AppCompatActivity {
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
+            public boolean onQueryTextChange(final String newText) {
                 Log.v(LOG_TAG, "search query updated: " + newText);
                 Query queryRef = myRef.orderByKey()
-                        .startAt("")
-                        .endAt("" + "\uf8ff");
+                        .startAt(newText)
+                        .endAt(newText + "\uf8ff");
                 ValueEventListener queryListener = new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        Log.d(LOG_TAG, "search query RECEIVED DATA FROM FIREBASE REALTIME DATABASE: " + dataSnapshot.getValue().toString());
-                        populateResults((Map<String, Object>) dataSnapshot.getValue());
+//                        Log.d(LOG_TAG, "search query RECEIVED DATA FROM FIREBASE REALTIME DATABASE: " + dataSnapshot.getValue().toString());
+                        if (dataSnapshot.getValue() != null) {
+                            populateResults((Map<String, Object>) dataSnapshot.getValue(), newText);
+                        }
                     }
 
                     @Override
@@ -88,14 +94,26 @@ public class CountrySearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+        countryResults = findViewById(R.id.country_search_results);
+        linearLayoutManager = new LinearLayoutManager(this);
+        countryResults.setLayoutManager(linearLayoutManager);
     }
 
-    public void populateResults(Map<String, Object> data) {
-        for (Map.Entry<String, Object> entry : data.entrySet()){
+    public void populateResults(Map<String, Object> data, String query) {
+        countries = new ArrayList<>();
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
+//            if (!entry.getKey().toLowerCase().contains(query.toLowerCase())) {
+//                continue;
+//            }
             Map singleCountry = (Map) entry.getValue();
             Log.d(LOG_TAG, "search query desc for " + entry.getKey() + " is " + singleCountry.get("desc"));
             CountryResult thisResult = new CountryResult(entry.getKey(), (String) singleCountry.get("desc"));
+            Log.d(LOG_TAG, "adding a country " + entry.getKey());
+            countries.add(thisResult);
         }
+        adapter = new CountryCardViewAdapter(countries);
+        countryResults.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
     // create an action bar button
