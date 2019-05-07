@@ -7,82 +7,84 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/colorPrimaryDark"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:fitsSystemWindows="true" />
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    tools:context="com.example.travelbuddy.CountrySearchActivity">
-
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/country_searchview"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4D9AAA" />
+        android:background="?attr/colorPrimaryDark"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true" />
 
-
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/card_view_1"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/country_searchview"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        card_view:cardBackgroundColor="#4D9AAA"
-        card_view:cardCornerRadius="4dp"
-        card_view:cardElevation="4dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp"
+        tools:context="com.example.travelbuddy.CountrySearchActivity">
 
-        <RelativeLayout
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/country_searchview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="#4D9AAA"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search"/>
 
-            <ImageView
-                android:id="@+id/thumbnail"
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/country_searchview"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            card_view:cardBackgroundColor="#4D9AAA"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp">
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_alignParentTop="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/sf" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/thumbnail"
-                android:maxLines="3"
-                android:paddingTop="8dp"
-                android:paddingLeft="8dp"
-                android:text="United States of America"
-                android:textColor="#FFF"
-                android:textSize="22dp"
-                android:textStyle="bold" />
+                <ImageView
+                    android:id="@+id/thumbnail"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sf" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
-                android:maxLines="3"
-                android:paddingLeft="8dp"
-                android:paddingBottom="8dp"
-                android:text="Country in North America"
-                android:textSize="14dp" />
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thumbnail"
+                    android:maxLines="3"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="8dp"
+                    android:text="United States of America"
+                    android:textColor="#FFF"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
 
-        </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title"
+                    android:maxLines="3"
+                    android:paddingLeft="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="Country in North America"
+                    android:textSize="14dp" />
 
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </LinearLayout>
