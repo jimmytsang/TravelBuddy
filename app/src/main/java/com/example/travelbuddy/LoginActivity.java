@@ -14,6 +14,7 @@ public class LoginActivity extends AppCompatActivity {
     public static final int LOGIN_RESULT = 219;
 
     Button login_button;
+    Button skip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,15 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, Login.class);
+                startActivityForResult(intent, LOGIN_RESULT);
+            }
+        });
+
+        skip = findViewById(R.id.signup);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivityForResult(intent, LOGIN_RESULT);
             }
         });

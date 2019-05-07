@@ -40,24 +40,24 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Travel Buddy");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeButtonEnabled(true);
 
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.navigation);
-        setupDrawerContent(navigationView);
-
-        Drawable menu = getDrawable(R.drawable.menu);
-        menu.setColorFilter( 0xffffffff, PorterDuff.Mode.MULTIPLY );
-        toolbar.setNavigationIcon(menu);
-        toolbar.setNavigationOnClickListener(
-            new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    drawerLayout.openDrawer(Gravity.LEFT);
-                }
-            }
-        );
+//        drawerLayout = findViewById(R.id.drawer_layout);
+//        navigationView = findViewById(R.id.navigation);
+//        setupDrawerContent(navigationView);
+//
+//        Drawable menu = getDrawable(R.drawable.menu);
+//        menu.setColorFilter( 0xffffffff, PorterDuff.Mode.MULTIPLY );
+//        toolbar.setNavigationIcon(menu);
+//        toolbar.setNavigationOnClickListener(
+//            new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    drawerLayout.openDrawer(Gravity.LEFT);
+//                }
+//            }
+//        );
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("test");
@@ -86,67 +86,67 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(intent);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.tool_items, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        selectDrawerItem(menuItem);
-                        return true;
-                    }
-                });
-    }
-
-    /** TO DO: update menu options and change fragmentClass **/
-    public void selectDrawerItem(MenuItem menuItem) {
-        Fragment fragment = null;
-        Class fragmentClass;
-        switch(menuItem.getItemId()) {
-            case R.id.first:
-//                fragmentClass = Login.class;
-                break;
-            case R.id.second:
-//                fragmentClass = Login.class;
-                break;
-            default:
-//                fragmentClass = Login.class;
-        }
-
-        /*
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.frame, fragment).commit();
-        */
-
-        // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
-        // Set action bar title
-        setTitle(menuItem.getTitle());
-        // Close the navigation drawer
-        drawerLayout.closeDrawers();
-    }
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+////        getMenuInflater().inflate(R.menu.tool_items, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+//
+//    private void setupDrawerContent(NavigationView navigationView) {
+//        navigationView.setNavigationItemSelectedListener(
+//                new NavigationView.OnNavigationItemSelectedListener() {
+//                    @Override
+//                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+//                        selectDrawerItem(menuItem);
+//                        return true;
+//                    }
+//                });
+//    }
+//
+//    /** TO DO: update menu options and change fragmentClass **/
+//    public void selectDrawerItem(MenuItem menuItem) {
+//        Fragment fragment = null;
+//        Class fragmentClass;
+//        switch(menuItem.getItemId()) {
+//            case R.id.first:
+////                fragmentClass = Login.class;
+//                break;
+//            case R.id.second:
+////                fragmentClass = Login.class;
+//                break;
+//            default:
+////                fragmentClass = Login.class;
+//        }
+//
+//        /*
+//        try {
+//            fragment = (Fragment) fragmentClass.newInstance();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Insert the fragment by replacing any existing fragment
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction().replace(R.id.frame, fragment).commit();
+//        */
+//
+//        // Highlight the selected item has been done by NavigationView
+//        menuItem.setChecked(true);
+//        // Set action bar title
+//        setTitle(menuItem.getTitle());
+//        // Close the navigation drawer
+//        drawerLayout.closeDrawers();
+//    }
 }
