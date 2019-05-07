@@ -1,5 +1,6 @@
 package com.example.travelbuddy;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,17 +50,26 @@ public class CountrySearchActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        CardView cardView = findViewById(R.id.card_view_1);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CountrySearchActivity.this, CountryPage.class);
-                startActivity(intent);
-            }
-        });
+//        CardView cardView = findViewById(R.id.card_view_1);
+//        cardView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(CountrySearchActivity.this, CountryPage.class);
+//                startActivity(intent);
+//            }
+//        });
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("countries");
+
+        countries = new ArrayList<>();
+        countryResults = findViewById(R.id.country_search_results);
+
+        linearLayoutManager = new LinearLayoutManager(this);
+        countryResults.setLayoutManager(linearLayoutManager);
+
+        adapter = new CountryCardViewAdapter(countries, this);
+        countryResults.setAdapter(adapter);
 
         // Get the SearchView and set the searchable configuration
         SearchView searchView = (SearchView) findViewById(R.id.country_searchview);
@@ -73,8 +83,8 @@ public class CountrySearchActivity extends AppCompatActivity {
             public boolean onQueryTextChange(final String newText) {
                 Log.v(LOG_TAG, "search query updated: " + newText);
                 Query queryRef = myRef.orderByKey()
-                        .startAt(newText)
-                        .endAt(newText + "\uf8ff");
+                        .startAt("")
+                        .endAt("" + "\uf8ff");
                 ValueEventListener queryListener = new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,25 +104,22 @@ public class CountrySearchActivity extends AppCompatActivity {
                 return false;
             }
         });
-        countryResults = findViewById(R.id.country_search_results);
-        linearLayoutManager = new LinearLayoutManager(this);
-        countryResults.setLayoutManager(linearLayoutManager);
     }
 
     public void populateResults(Map<String, Object> data, String query) {
-        countries = new ArrayList<>();
+        Log.d(LOG_TAG, query);
+        countries.clear();
+        adapter.notifyDataSetChanged();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
-//            if (!entry.getKey().toLowerCase().contains(query.toLowerCase())) {
-//                continue;
-//            }
+            if (!entry.getKey().toLowerCase().contains(query.toLowerCase())) {
+                continue;
+            }
             Map singleCountry = (Map) entry.getValue();
             Log.d(LOG_TAG, "search query desc for " + entry.getKey() + " is " + singleCountry.get("desc"));
             CountryResult thisResult = new CountryResult(entry.getKey(), (String) singleCountry.get("desc"));
             Log.d(LOG_TAG, "adding a country " + entry.getKey());
             countries.add(thisResult);
         }
-        adapter = new CountryCardViewAdapter(countries);
-        countryResults.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
@@ -159,6 +166,8 @@ class CountryResult {
 
 class CountryCardViewAdapter extends RecyclerView.Adapter<CountryCardViewAdapter.CountryCardViewHolder>{
 
+    Context context;
+
     public static class CountryCardViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView name;
@@ -176,8 +185,9 @@ class CountryCardViewAdapter extends RecyclerView.Adapter<CountryCardViewAdapter
 
     List<CountryResult> countries;
 
-    CountryCardViewAdapter(List<CountryResult> countries) {
+    CountryCardViewAdapter(List<CountryResult> countries, Context context) {
         this.countries = countries;
+        this.context = context;
     }
 
     @Override
@@ -197,5 +207,12 @@ class CountryCardViewAdapter extends RecyclerView.Adapter<CountryCardViewAdapter
         personViewHolder.name.setText(countries.get(i).name);
         personViewHolder.desc.setText(countries.get(i).desc);
         personViewHolder.image.setImageResource(countries.get(i).imageId);
+        personViewHolder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CountryPage.class);
+                context.startActivity(intent);
+            }
+        });
     }
 }
