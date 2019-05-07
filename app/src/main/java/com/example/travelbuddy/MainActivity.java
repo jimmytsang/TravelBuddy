@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity);
 
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Travel Buddy");
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        getSupportActionBar().setHomeButtonEnabled(true);
@@ -48,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
 //        setupDrawerContent(navigationView);
 //
 //        Drawable menu = getDrawable(R.drawable.menu);
-//        menu.setColorFilter( 0xffffffff, PorterDuff.Mode.MULTIPLY );
 //        toolbar.setNavigationIcon(menu);
 //        toolbar.setNavigationOnClickListener(
 //            new View.OnClickListener() {
