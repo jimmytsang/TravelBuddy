@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,7 +50,7 @@ public class ItineraryActivity extends AppCompatActivity {
         final List<Destination> myDataset = new ArrayList<>();
 
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("destinations");
+        DatabaseReference myRef = database.getReference("itinerary");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -73,7 +75,9 @@ public class ItineraryActivity extends AppCompatActivity {
 }
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+
     private List<Destination> mDataset;
+    private Map<String, Integer> imageMap;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -90,6 +94,8 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(List<Destination> myDataset) {
         mDataset = myDataset;
+        imageMap = new HashMap<>();
+        imageMap.put("Grand Canyon", R.mipmap.grandcanyon);
     }
 
     // Create new views (invoked by the layout manager)
@@ -98,7 +104,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                                                      int viewType) {
         // create a new view
         CardView v = (CardView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.destination_card_layout, parent, false);
+                .inflate(R.layout.destination_card_layout_in_itinerary, parent, false);
 
         MyViewHolder vh = new MyViewHolder(v);
 //        Log.d("hey", "lol ?");
@@ -115,6 +121,8 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         title.setText(thisDest.name);
         TextView desc = holder.cardView.findViewById(R.id.destination_desc);
         desc.setText(thisDest.desc);
+        ImageView img = holder.cardView.findViewById(R.id.destination_pic);
+        img.setImageResource(imageMap.get(thisDest.name));
     }
 
     // Return the size of your dataset (invoked by the layout manager)

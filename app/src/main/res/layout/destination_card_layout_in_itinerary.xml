@@ -51,4 +51,18 @@
             android:textSize="14dp" />
 
     </RelativeLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/destination_add_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="50dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/baseline_remove_white_24dp"
+        android:elevation="4dp"
+        android:layout_gravity="end|bottom"
+        card_view:fabSize="normal" />
+
 </androidx.cardview.widget.CardView>

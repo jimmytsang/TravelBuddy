@@ -71,6 +71,25 @@ public class CountrySearchActivity extends AppCompatActivity {
         adapter = new CountryCardViewAdapter(countries, this);
         countryResults.setAdapter(adapter);
 
+        Query queryRef = myRef.orderByKey()
+                .startAt("")
+                .endAt("" + "\uf8ff");
+        ValueEventListener queryListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                        Log.d(LOG_TAG, "search query RECEIVED DATA FROM FIREBASE REALTIME DATABASE: " + dataSnapshot.getValue().toString());
+                if (dataSnapshot.getValue() != null) {
+                    populateResults((Map<String, Object>) dataSnapshot.getValue(), "");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        queryRef.addListenerForSingleValueEvent(queryListener);
+
         // Get the SearchView and set the searchable configuration
         SearchView searchView = (SearchView) findViewById(R.id.country_searchview);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
