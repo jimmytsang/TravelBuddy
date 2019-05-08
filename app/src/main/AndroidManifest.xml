@@ -12,7 +12,7 @@
         <activity
             android:name=".ScrollingActivityExample"
             android:label="@string/title_activity_scrolling_example"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +43,10 @@
             android:label="@string/title_activity_top_dest"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".NewTrip"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBarPurple">
+        </activity>
     </application>
 
 </manifest>
