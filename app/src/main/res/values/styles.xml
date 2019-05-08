@@ -14,6 +14,7 @@
         <item name="colorPrimaryDark">#13467B</item>
         <item name="colorAccent">#E97059</item>
     </style>
+
     <style name="AppTheme.NoActionBarOrange">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -23,6 +24,15 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
+
+    <style name="AppTheme.NoActionBarGold">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">#E69B48</item>
+        <item name="colorPrimaryDark">#E69B48</item>
+        <item name="colorAccent">#4D9AAA</item>
+    </style>
+
     <style name="AppTheme.NoActionBarTeal">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -30,6 +40,7 @@
         <item name="colorPrimaryDark">#4D9AAA</item>
         <item name="colorAccent">#4D9AAA</item>
     </style>
+
     <style name="AppTheme.NoActionBarPurple">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -37,6 +48,7 @@
         <item name="colorPrimaryDark">#AC5997</item>
         <item name="colorAccent">#4D9AAA</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

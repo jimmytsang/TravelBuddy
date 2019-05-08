@@ -42,11 +42,11 @@
             android:name=".TopDest"
             android:label="@string/title_activity_top_dest"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".NewTrip"
+            android:theme="@style/AppTheme.NoActionBarGold" />
+        <activity
+            android:name=".NewTrip"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBarPurple">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBarPurple"></activity>
     </application>
 
 </manifest>
