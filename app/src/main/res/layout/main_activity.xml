@@ -36,16 +36,16 @@
                 android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/card_view_1"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="8dp"
-            card_view:cardBackgroundColor="#FFFFFF"
-            card_view:cardCornerRadius="4dp"
-            card_view:cardElevation="4dp">
+                android:id="@+id/card_view_1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="8dp"
+                card_view:cardBackgroundColor="#FFFFFF"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="4dp">
 
             <RelativeLayout
                 android:id="@+id/layout1"
@@ -74,7 +74,7 @@
                     android:paddingTop="8dp"
                     android:paddingBottom="16dp"
                     android:textAlignment="center"
-                    android:text="Destination Search"
+                    android:text="Country\nSearch"
                     android:textColor="#444444"
                     android:textSize="22dp"
                     android:layout_below="@id/thumbnail1"
@@ -155,7 +155,7 @@
                         android:padding="8dp"
                         android:gravity="center"
                         android:layout_centerVertical="true"
-                        android:text="Start New Trip"
+                        android:text="View Current Trip"
                         android:textColor="#fff"
                         android:textSize="22dp"
                         android:textStyle="bold" />

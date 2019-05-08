@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view_1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/toolbar"
+    android:layout_gravity="center"
+    android:layout_marginTop="16dp"
+    card_view:cardBackgroundColor="#13467B"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/destination_pic"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/paris" />
+
+        <TextView
+            android:id="@+id/destination_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/destination_pic"
+            android:maxLines="3"
+            android:paddingTop="8dp"
+            android:paddingLeft="8dp"
+            android:text="Eiffel Tower"
+            android:textColor="#FFF"
+            android:textSize="22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/destination_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/destination_title"
+            android:maxLines="3"
+            android:paddingLeft="8dp"
+            android:paddingBottom="8dp"
+            android:textColor="#C9C9C9"
+            android:text="Paris, France"
+            android:textSize="14dp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
