@@ -204,13 +204,17 @@ class CountryCardViewAdapter extends RecyclerView.Adapter<CountryCardViewAdapter
 
     @Override
     public void onBindViewHolder(CountryCardViewHolder personViewHolder, int i) {
-        personViewHolder.name.setText(countries.get(i).name);
-        personViewHolder.desc.setText(countries.get(i).desc);
-        personViewHolder.image.setImageResource(countries.get(i).imageId);
+        final CountryResult thisCountry = countries.get(i);
+        personViewHolder.name.setText(thisCountry.name);
+        personViewHolder.desc.setText(thisCountry.desc);
+        personViewHolder.image.setImageResource(thisCountry.imageId);
         personViewHolder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, CountryPage.class);
+                intent.putExtra("name", thisCountry.name);
+                intent.putExtra("desc", thisCountry.desc);
+                intent.putExtra("imageId", thisCountry.imageId);
                 context.startActivity(intent);
             }
         });
