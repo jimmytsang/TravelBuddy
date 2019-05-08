@@ -103,4 +103,16 @@
         "The ESTA allows citizens of Singapore to visit the U.S. for tourism, business, transit, medical and short study purposes without a visa for up to 90 days per visit."
     </string>
     <string name="visa_link">More information at  https://esta.cbp.dhs.gov</string>
+    <string name="country_prompt">Home Country</string>
+
+    <string-array name="country_arrays">
+        <item>Malaysia</item>
+        <item>United States</item>
+        <item>Indonesia</item>
+        <item>France</item>
+        <item>Italy</item>
+        <item>Singapore</item>
+        <item>New Zealand</item>
+        <item>India</item>
+    </string-array>
 </resources>
