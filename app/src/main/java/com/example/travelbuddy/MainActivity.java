@@ -49,4 +49,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ItineraryActivity.class);
         MainActivity.this.startActivity(intent);
     }
+
+    public void toProfile(View view) {
+        Intent intent = new Intent(MainActivity.this, MyProfile.class);
+        MainActivity.this.startActivity(intent);
+    }
 }

@@ -48,6 +48,9 @@
             android:name=".NewTrip"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBarPurple"></activity>
+        <activity
+            android:name=".MyProfile"
+            android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>
