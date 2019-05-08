@@ -9,7 +9,6 @@
         android:id="@+id/expandableListView"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
         android:divider="@color/colorPrimaryDark"
         android:dividerHeight="0.5dp" />
 
