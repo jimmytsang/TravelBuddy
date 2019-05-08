@@ -25,12 +25,12 @@
             android:id="@+id/country_searchview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4D9AAA"
+            android:background="#13467B"
+            android:visibility="visible"
             app:iconifiedByDefault="false"
-            app:queryHint="Search"/>
+            app:queryHint="Search" />
 
         <include layout="@layout/fragment_top_destinations_content" />
-        <include layout="@layout/fragment_top_destinations_brazil_christ" />
     </LinearLayout>
     </ScrollView>
 
