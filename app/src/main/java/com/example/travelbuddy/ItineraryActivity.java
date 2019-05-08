@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -49,6 +52,13 @@ public class ItineraryActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
         final List<Destination> myDataset = new ArrayList<>();
 
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("itinerary");
+        updateFromDb();
+    }
+
+    public void updateFromDb() {
+        final List<Destination> myDataset = new ArrayList<>();
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("itinerary");
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,6 +106,11 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         mDataset = myDataset;
         imageMap = new HashMap<>();
         imageMap.put("Grand Canyon", R.mipmap.grandcanyon);
+        imageMap.put("Eiffel Tower", R.mipmap.paris);
+        imageMap.put("Colosseum", R.mipmap.colosseum);
+        imageMap.put("Machu Picchu", R.mipmap.macchu);
+        imageMap.put("Sydney Opera House", R.mipmap.sydney);
+        imageMap.put("Yellowstone National Park", R.mipmap.yellowstone);
     }
 
     // Create new views (invoked by the layout manager)
@@ -113,16 +128,32 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        Destination thisDest = mDataset.get(position);
+        final Destination thisDest = mDataset.get(position);
         TextView title = holder.cardView.findViewById(R.id.destination_title);
         title.setText(thisDest.name);
         TextView desc = holder.cardView.findViewById(R.id.destination_desc);
         desc.setText(thisDest.desc);
         ImageView img = holder.cardView.findViewById(R.id.destination_pic);
         img.setImageResource(imageMap.get(thisDest.name));
+
+        FloatingActionButton fab = holder.cardView.findViewById(R.id.destination_remove_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("itinerary");
+                myRef.child(thisDest.name).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        notifyItemRemoved(position);
+                        notifyDataSetChanged();
+                    }
+                });
+            }
+        });
     }
 
     // Return the size of your dataset (invoked by the layout manager)

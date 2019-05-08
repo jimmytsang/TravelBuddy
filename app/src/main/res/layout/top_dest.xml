@@ -81,6 +81,20 @@
                 android:textSize="14dp" />
 
             </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/destination_add_fab_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/baseline_add_white_24dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|bottom"
+                card_view:fabSize="normal" />
+
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_2"
@@ -130,6 +144,20 @@
                     android:textSize="14dp" />
 
             </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/destination_add_fab_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/baseline_add_white_24dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|bottom"
+                card_view:fabSize="normal" />
+
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_3"
@@ -179,6 +207,20 @@
                     android:textSize="14dp" />
 
             </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/destination_add_fab_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/baseline_add_white_24dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|bottom"
+                card_view:fabSize="normal" />
+
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_4"
@@ -228,6 +270,20 @@
                     android:textSize="14dp" />
 
             </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/destination_add_fab_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/baseline_add_white_24dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|bottom"
+                card_view:fabSize="normal" />
+
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:id="@+id/card_view_5"
@@ -277,6 +333,85 @@
                     android:textSize="14dp" />
 
             </RelativeLayout>
+
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/destination_add_fab_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="40dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/baseline_add_white_24dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|bottom"
+                card_view:fabSize="normal" />
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view_6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toolbar"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            card_view:cardBackgroundColor="#E69B48"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/thumbnail6"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_alignParentTop="true"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/grandcanyon" />
+
+                <TextView
+                    android:id="@+id/title6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/thumbnail6"
+                    android:maxLines="3"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="8dp"
+                    android:text="Grand Canyon"
+                    android:textColor="#FFF"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/title6"
+                    android:maxLines="3"
+                    android:paddingLeft="8dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="#222"
+                    android:text="National park with layered bands of red rock revealing millions of years of geological history"
+                    android:textSize="14dp" />
+
+            </RelativeLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/destination_add_fab_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="50dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/baseline_add_white_24dp"
+                android:elevation="4dp"
+                android:layout_gravity="end|bottom"
+                card_view:fabSize="normal" />
+
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
