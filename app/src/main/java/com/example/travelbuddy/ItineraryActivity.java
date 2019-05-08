@@ -1,5 +1,6 @@
 package com.example.travelbuddy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -12,8 +13,15 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ItineraryActivity extends AppCompatActivity {
 
@@ -37,16 +45,30 @@ public class ItineraryActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        List<Destination> myDataset = new ArrayList<>();
-        myDataset.add(new Destination("dest1", "desc1"));
-        myDataset.add(new Destination("dest2", "desc2"));
-        myDataset.add(new Destination("dest2", "desc2"));
-        myDataset.add(new Destination("dest2", "desc2"));
-        myDataset.add(new Destination("dest2", "desc2"));
-        myDataset.add(new Destination("dest2", "desc2"));
-        mAdapter = new MyAdapter(myDataset);
-        recyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+        final List<Destination> myDataset = new ArrayList<>();
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("destinations");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    Map<String, Object> result = (Map<String, Object>) dataSnapshot.getValue();
+                    for (Map.Entry<String, Object> item : result.entrySet()) {
+                        myDataset.add(new Destination(item.getKey(), (String) item.getValue()));
+                        Log.d("Hey", "found destination entry: " + item.getKey());
+                    }
+                    mAdapter = new MyAdapter(myDataset);
+                    recyclerView.setAdapter(mAdapter);
+                    mAdapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // PASS
+            }
+        });
     }
 }
 
@@ -88,7 +110,11 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-//        holder.cardView
+        Destination thisDest = mDataset.get(position);
+        TextView title = holder.cardView.findViewById(R.id.destination_title);
+        title.setText(thisDest.name);
+        TextView desc = holder.cardView.findViewById(R.id.destination_desc);
+        desc.setText(thisDest.desc);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
