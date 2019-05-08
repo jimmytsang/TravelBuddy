@@ -17,7 +17,7 @@ public class CountryTabAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position)
     {
         switch (position){
-            case 0 : return new TransportationFragment();
+            case 0 : return new VisaFragment();
             case 1 : return new TipsFragment();
             case 2 : return new TopDestinationsFragment();
         }
