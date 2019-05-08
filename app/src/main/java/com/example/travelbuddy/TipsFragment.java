@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +83,7 @@ public class TipsFragment extends Fragment {
                 transportation.add((String) entry.getValue());
             }
         }
+
         expandableListDetail.put("TRANSPORATION", transportation);
         expandableListDetail.put("GENERAL", general);
 
@@ -201,6 +201,11 @@ class ExpandableListViewAdapter extends BaseExpandableListAdapter {
                 .findViewById(R.id.textViewGroup);
         textViewGroup.setTypeface(null, Typeface.BOLD);
         textViewGroup.setText(headerTitle);
+        if (groupPosition == 0) {
+            textViewGroup.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.airplane_icon, 0);
+        } else if (groupPosition == 1) {
+
+        }
 
         return convertView;
     }
