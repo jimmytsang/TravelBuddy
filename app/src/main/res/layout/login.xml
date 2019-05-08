@@ -56,4 +56,12 @@
         android:layout_marginTop="200dp"
         android:text="Log In" />
 
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="250dp"
+        android:text="Sign Up" />
+
 </RelativeLayout>
