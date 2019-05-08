@@ -4,8 +4,10 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,12 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,10 +48,46 @@ public class TipsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rv = inflater.inflate(R.layout.fragment_tips, container, false);
+        final View rv = inflater.inflate(R.layout.fragment_tips, container, false);
+
+        Bundle args = getArguments();
+
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("tips/" + args.get("name"));
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() != null) {
+                    setupData((Map<String, Object>) dataSnapshot.getValue(), rv);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // PASS
+            }
+        });
+
+        return rv;
+    }
+
+    public void setupData(Map<String, Object> data, View rv) {
+        expandableListDetail = new HashMap<>();
+        List<String> transportation = new ArrayList<>();
+        List<String> general = new ArrayList<>();
+
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
+            Log.d("lol", "key: " + entry.getKey() + ", value: " + (String) entry.getValue());
+            if (entry.getKey().contains("general")) {
+                general.add((String) entry.getValue());
+            } else if (entry.getKey().contains("transportation")) {
+                transportation.add((String) entry.getValue());
+            }
+        }
+        expandableListDetail.put("TRANSPORATION", transportation);
+        expandableListDetail.put("GENERAL", general);
 
         expandableListView = rv.findViewById(R.id.expandableListView);
-        expandableListDetail = TipsFragmentData.getData();
         expandableListTitle = new ArrayList(expandableListDetail.keySet());
         expandableListAdapter = new ExpandableListViewAdapter(this.getContext(), expandableListTitle, expandableListDetail);
 
@@ -73,40 +117,6 @@ public class TipsFragment extends Fragment {
         });
 
         expandableListView.setAdapter(expandableListAdapter);
-
-        return rv;
-    }
-}
-
-class TipsFragmentData {
-    public static HashMap getData() {
-        HashMap<String, List<String>> expandableListDetail = new HashMap<>();
-
-        List<String> technology = new ArrayList<>();
-        technology.add("Beats sued for noise-cancelling tech");
-        technology.add("Wikipedia blocks US Congress edits");
-        technology.add("Google quizzed over deleted links");
-        technology.add("Nasa seeks aid with Earth-Mars links");
-        technology.add("The Good, the Bad and the Ugly");
-
-        List<String> entertainment = new ArrayList<>();
-        entertainment.add("Goldfinch novel set for big screen");
-        entertainment.add("Anderson stellar in Streetcar");
-        entertainment.add("Ronstadt receives White House honour");
-        entertainment.add("Toronto to open with The Judge");
-        entertainment.add("British dancer return from Russia");
-
-        List<String> science = new ArrayList<>();
-        science.add("Eggshell may act like sunblock");
-        science.add("Brain hub predicts negative events");
-        science.add("California hit by raging wildfires");
-        science.add("Rosetta's comet seen in close-up");
-        science.add("Secret of sandstone shapes revealed");
-
-        expandableListDetail.put("TECHNOLOGY NEWS", technology);
-        expandableListDetail.put("ENTERTAINMENT NEWS", entertainment);
-        expandableListDetail.put("SCIENCE & ENVIRONMENT NEWS", science);
-        return expandableListDetail;
     }
 }
 

@@ -29,7 +29,12 @@ public class CountryTabAdapter extends FragmentPagerAdapter {
                 args.putString("name", country.name);
                 rv.setArguments(args);
                 return rv;
-            case 1 : return new TipsFragment();
+            case 1 :
+                TipsFragment tips_rv = new TipsFragment();
+                Bundle tips_args = new Bundle();
+                tips_args.putString("name", country.name);
+                tips_rv.setArguments(tips_args);
+                return tips_rv;
             case 2 : return new TopDestinationsFragment();
         }
         return null;
