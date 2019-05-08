@@ -21,15 +21,6 @@
         android:orientation="vertical"
         tools:context=".ScrollingActivityExample">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/country_searchview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#13467B"
-            android:visibility="visible"
-            app:iconifiedByDefault="false"
-            app:queryHint="Search" />
-
         <include layout="@layout/fragment_top_destinations_content" />
     </LinearLayout>
     </ScrollView>
