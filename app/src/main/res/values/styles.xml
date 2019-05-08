@@ -13,8 +13,6 @@
         <item name="colorPrimary">#13467B</item>
         <item name="colorPrimaryDark">#13467B</item>
         <item name="colorAccent">#E97059</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
     </style>
     <style name="AppTheme.NoActionBarOrange">
         <item name="windowActionBar">false</item>

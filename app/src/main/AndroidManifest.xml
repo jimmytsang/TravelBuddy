@@ -41,6 +41,7 @@
         <activity
             android:name=".TopDest"
             android:label="@string/title_activity_top_dest"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
