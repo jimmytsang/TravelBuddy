@@ -23,8 +23,6 @@ public class Login extends AppCompatActivity {
         username_input = findViewById(R.id.input_username);
         password_input = findViewById(R.id.input_password);
 
-        setTitle("Travel Buddy");
-
         // clicking 'login' takes you to Main Activity
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
