@@ -24,7 +24,8 @@ public class CountryPage extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         country = new CountryResult((String) extras.get("name"),
                 (String) extras.get("desc"),
-                (String) extras.get("text1"));
+                (String) extras.get("text1"),
+                (String) extras.get("text2"));
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(country.name);

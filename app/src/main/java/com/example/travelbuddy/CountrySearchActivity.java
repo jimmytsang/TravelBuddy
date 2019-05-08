@@ -137,7 +137,8 @@ public class CountrySearchActivity extends AppCompatActivity {
             Log.d(LOG_TAG, "search query desc for " + entry.getKey() + " is " + singleCountry.get("desc"));
             CountryResult thisResult = new CountryResult(entry.getKey(),
                     (String) singleCountry.get("desc"),
-                    (String) singleCountry.get("text1"));
+                    (String) singleCountry.get("text1"),
+                    (String) singleCountry.get("text2"));
             Log.d(LOG_TAG, "adding a country " + entry.getKey());
             countries.add(thisResult);
         }
@@ -169,13 +170,15 @@ class CountryResult {
     public String desc;
     public int imageId;
     public String text1;
+    public String text2;
 
     private Map<String, Integer> idMap;
 
-    CountryResult(String name, String desc, String text1) {
+    CountryResult(String name, String desc, String text1, String text2) {
         this.name = name;
         this.desc = desc;
         this.text1 = text1;
+        this.text2 = text2;
         initializeIdMap();
         this.imageId = idMap.get(name);
     }
@@ -240,6 +243,7 @@ class CountryCardViewAdapter extends RecyclerView.Adapter<CountryCardViewAdapter
                 intent.putExtra("desc", thisCountry.desc);
                 intent.putExtra("imageId", thisCountry.imageId);
                 intent.putExtra("text1", thisCountry.text1);
+                intent.putExtra("text2", thisCountry.text2);
                 context.startActivity(intent);
             }
         });

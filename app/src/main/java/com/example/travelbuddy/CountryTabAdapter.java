@@ -23,26 +23,33 @@ public class CountryTabAdapter extends FragmentPagerAdapter {
     {
         switch (position){
             case 0:
+                GenInfoFragment gen_rv = new GenInfoFragment();
+                Bundle gen_args = new Bundle();
+                gen_args.putString("text2", country.text2);
+                gen_args.putString("name", country.name);
+                gen_rv.setArguments(gen_args);
+                return gen_rv;
+            case 1:
                 VisaFragment rv = new VisaFragment();
                 Bundle args = new Bundle();
                 args.putString("text1", country.text1);
                 args.putString("name", country.name);
                 rv.setArguments(args);
                 return rv;
-            case 1 :
+            case 2:
                 TipsFragment tips_rv = new TipsFragment();
                 Bundle tips_args = new Bundle();
                 tips_args.putString("name", country.name);
                 tips_rv.setArguments(tips_args);
                 return tips_rv;
-            case 2 : return new TopDestinationsFragment();
+            case 3: return new TopDestinationsFragment();
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
     /**
@@ -52,11 +59,13 @@ public class CountryTabAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position){
             case 0 :
-                return "Visa Information";
+                return "General";
             case 1 :
-                return "Travel Tips";
+                return "Visa Info";
             case 2 :
-                return "Top Destinations";
+                return "Travel Tips";
+            case 3:
+                return "Top Sites";
         }
         return null;
     }
