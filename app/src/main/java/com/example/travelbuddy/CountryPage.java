@@ -21,23 +21,24 @@ public class CountryPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.country);
 
+        Bundle extras = getIntent().getExtras();
+        country = new CountryResult((String) extras.get("name"),
+                (String) extras.get("desc"),
+                (String) extras.get("text1"));
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(country.name);
+        setSupportActionBar(toolbar);
+
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.tab_layout);
-        viewPager.setAdapter(new CountryTabAdapter(getSupportFragmentManager()));
+        viewPager.setAdapter(new CountryTabAdapter(getSupportFragmentManager(), country));
         tabLayout.post(new Runnable() {
             @Override
             public void run() {
                 tabLayout.setupWithViewPager(viewPager);
             }
         });
-
-
-        Bundle extras = getIntent().getExtras();
-        country = new CountryResult((String) extras.get("name"), (String) extras.get("desc"));
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(country.name);
-        setSupportActionBar(toolbar);
     }
 
     // create an action bar button
