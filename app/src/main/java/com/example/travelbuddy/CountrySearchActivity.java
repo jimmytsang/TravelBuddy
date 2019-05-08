@@ -165,6 +165,7 @@ class CountryResult {
         idMap = new HashMap<>();
         idMap.put("Brazil", R.mipmap.brazil_small);
         idMap.put("United States of America", R.drawable.sf);
+        idMap.put("Taiwan", R.mipmap.taiwan_skyline);
     }
 }
 

@@ -54,7 +54,7 @@
                 android:layout_height="100dp"
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/paris" />
+                android:src="@mipmap/paris" />
 
             <TextView
                 android:id="@+id/title"
@@ -103,7 +103,7 @@
                     android:layout_height="100dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/macchu" />
+                    android:src="@mipmap/macchu" />
 
                 <TextView
                     android:id="@+id/title2"
@@ -152,7 +152,7 @@
                     android:layout_height="100dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/sydney" />
+                    android:src="@mipmap/sydney" />
 
                 <TextView
                     android:id="@+id/title3"
@@ -201,7 +201,7 @@
                     android:layout_height="100dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/yellowstone" />
+                    android:src="@mipmap/yellowstone" />
 
                 <TextView
                     android:id="@+id/title4"
@@ -250,7 +250,7 @@
                     android:layout_height="100dp"
                     android:layout_alignParentTop="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/colosseum" />
+                    android:src="@mipmap/colosseum" />
 
                 <TextView
                     android:id="@+id/title5"

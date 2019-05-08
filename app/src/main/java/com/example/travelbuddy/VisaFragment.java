@@ -24,6 +24,7 @@ public class VisaFragment extends Fragment {
         imageMap = new HashMap<>();
         imageMap.put("United States of America", R.mipmap.esta_big);
         imageMap.put("Brazil", R.mipmap.brazil_travel_visa);
+        imageMap.put("Taiwan", R.drawable.taiwan_visa);
     }
 
     @Override
